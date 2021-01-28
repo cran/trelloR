@@ -2,8 +2,8 @@
 % Please edit documentation in R/get_org.R
 \name{get_team}
 \alias{get_team}
-\alias{get_team_boards}
 \alias{get_team_members}
+\alias{get_team_boards}
 \title{Get Team}
 \usage{
 get_team_members(id, ...)
@@ -13,15 +13,14 @@ get_team_boards(id, ...)
 \arguments{
 \item{id}{team ID, short name or URL}
 
-\item{...}{Additional arguments passed to \code{\link{trello_get}}}
+\item{...}{Additional arguments passed to \code{\link[=get_resource]{get_resource()}}}
 }
 \description{
-Returns a flat \code{data.frame} with team/organization-related data
+Returns a flat data frame with team/organization-related data
 }
 \details{
 Previously, teams were called "organizations", and the correct parent/child name in API calls remains "organization", "organizations".
 }
 \seealso{
-\code{\link{trello_get}}
+\code{\link[=get_resource]{get_resource()}}
 }
-

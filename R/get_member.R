@@ -1,48 +1,45 @@
-# Functions that retrieve data related to a member
-
 #' Get Own Boards
 #'
-#' Returns a flat \code{data.frame} with all your boards.
-#' @param token Secure token - get it with \code{\link{trello_get_token}}
-#' @param ... Additional arguments passed to \code{\link{trello_get}}
-#' @seealso \code{\link{trello_get}}
+#' Returns a flat data frame, containing the authenticated user's boards.
+#'
+#' @param ... Additional arguments passed to [get_resource()]
+#' @seealso [get_resource()]
+#'
 #' @export
 
-get_my_boards = function(token, ...) {
-
-    dat = trello_get(parent = "member", child = "boards", id = "me",
-                     token = token, ...)
-    return(dat)
+get_my_boards = function(...) {
+  get_resource(parent = "member", child = "boards", id = "me",...)
 }
 
 #' Get Member's Boards
 #'
-#' Returns a flat \code{data.frame} with member-related data.
+#' Returns a flat data frame with member-related data.
+#'
 #' @param id member ID or username
-#' @param ... Additional arguments passed to \code{\link{trello_get}}
-#' @seealso \code{\link{trello_get}}
+#' @param ... Additional arguments passed to [get_resource()]
+#' @seealso [get_resource()]
+#'
 #' @export
 get_member_boards = function(id, ...) {
-
-    dat = trello_get(parent = "member", child = "boards", id = id, ...)
-    return(dat)
+  get_resource(parent = "member", child = "boards", id = id, ...)
 }
 
 #' Get Member Info
 #'
-#' Returns a flat \code{data.frame} with member-related data.
+#' Returns a flat data frame with member-related data.
+#'
 #' @param id member ID or username
 #' @param fields by default fetches fullName, username, memberType, bio
-#' @param ... Additional arguments passed to \code{\link{trello_get}}
-#' @seealso \code{\link{trello_get}}
+#' @param ... Additional arguments passed to [get_resource()]
+#' @seealso [get_resource()]
+#'
 #' @export
 get_member_fields = function(id,
                              fields = c("fullName", "username", "memberType",
                                         "bio"),
                              ...) {
 
-    dat = trello_get(parent = "member", child = NULL, id = id,
-                     query = list(fields = paste0(fields, collapse = ",")),
-                     ...)
-    return(dat)
+  get_resource(parent = "member", child = NULL, id = id,
+               query = list(fields = paste0(fields, collapse = ",")),
+               ...)
 }

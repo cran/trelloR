@@ -1,30 +1,28 @@
 Package: trelloR
-Title: R API for Trello
-Version: 0.1.0
-Authors@R: c(
-    person("Jakub", "Chromec", , "chromec.jakub@gmail.com", role = c("aut", "cre")),
-    person("Irina", "Matusevich", role = "ctb")
-    )
-Description: Provides access to Trello API (<https://developers.trello.com/>).
-    A family of GET functions make it easy to retrieve cards, labels, members,
-    teams and other data from both public and private boards. Server responses
-    are formatted upon retrieval. Automated paging allows for large requests
-    that exceed server limit. See <https://github.com/jchrom/trelloR> for more
-    information.
-Depends: R (>= 3.2.3)
-Imports: dplyr (>= 0.5), httr (>= 1.2), jsonlite (>= 1.0)
+Title: Access the Trello API
+Version: 0.7.0
+Authors@R: 
+    person(given = "Jakub",
+           family = "Chromec",
+           role = c("aut", "cre"),
+           email = "chromec.jakub@gmail.com")
+Description: An R client for the Trello API. Supports free-tier features such as
+    access to private boards, creating and updating cards and other resources,
+    and downloading data in a structured way.
+Depends: R (>= 3.6.0)
+Imports: httr (>= 1.4.0), jsonlite (>= 1.7.0)
 License: GPL-3
 LazyData: true
 URL: https://github.com/jchrom/trelloR
 BugReports: https://github.com/jchrom/trelloR/issues
-Date: 2016-09-22
-RoxygenNote: 5.0.1
-Suggests: knitr, rmarkdown
+Date: 2021-01-26
+RoxygenNote: 7.1.1
+Suggests: knitr, rmarkdown, tibble, testthat
 VignetteBuilder: knitr
+Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2016-09-22 20:06:28 UTC; jakub
-Author: Jakub Chromec [aut, cre],
-  Irina Matusevich [ctb]
+Packaged: 2021-01-28 19:20:46 UTC; jakub
+Author: Jakub Chromec [aut, cre]
 Maintainer: Jakub Chromec <chromec.jakub@gmail.com>
 Repository: CRAN
-Date/Publication: 2016-09-23 00:01:56
+Date/Publication: 2021-01-28 19:40:02 UTC

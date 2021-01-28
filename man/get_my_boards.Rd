@@ -4,17 +4,14 @@
 \alias{get_my_boards}
 \title{Get Own Boards}
 \usage{
-get_my_boards(token, ...)
+get_my_boards(...)
 }
 \arguments{
-\item{token}{Secure token - get it with \code{\link{trello_get_token}}}
-
-\item{...}{Additional arguments passed to \code{\link{trello_get}}}
+\item{...}{Additional arguments passed to \code{\link[=get_resource]{get_resource()}}}
 }
 \description{
-Returns a flat \code{data.frame} with all your boards.
+Returns a flat data frame, containing the authenticated user's boards.
 }
 \seealso{
-\code{\link{trello_get}}
+\code{\link[=get_resource]{get_resource()}}
 }
-

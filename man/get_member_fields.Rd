@@ -4,20 +4,22 @@
 \alias{get_member_fields}
 \title{Get Member Info}
 \usage{
-get_member_fields(id, fields = c("fullName", "username", "memberType", "bio"),
-  ...)
+get_member_fields(
+  id,
+  fields = c("fullName", "username", "memberType", "bio"),
+  ...
+)
 }
 \arguments{
 \item{id}{member ID or username}
 
 \item{fields}{by default fetches fullName, username, memberType, bio}
 
-\item{...}{Additional arguments passed to \code{\link{trello_get}}}
+\item{...}{Additional arguments passed to \code{\link[=get_resource]{get_resource()}}}
 }
 \description{
-Returns a flat \code{data.frame} with member-related data.
+Returns a flat data frame with member-related data.
 }
 \seealso{
-\code{\link{trello_get}}
+\code{\link[=get_resource]{get_resource()}}
 }
-

@@ -1,28 +1,44 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-R API for Trello
-================
 
-[![Build Status](https://travis-ci.org/jchrom/trelloR.svg?branch=master)](https://travis-ci.org/jchrom/trelloR)
+## API client for Trello
 
-The purpose of `trelloR` is to easily access [Trello API](https://developers.trello.com/) from R. It can retrieve cards, labels, checklists and other data from Trello boards, using functions with predictable names. Getting cards from a particular board is as easy as:
+[![Build
+Status](https://travis-ci.org/jchrom/trelloR.svg?branch=master)](https://travis-ci.org/jchrom/trelloR/)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/trelloR)](https://cran.r-project.org/package=trelloR/)
+[![Rdoc](https://www.rdocumentation.org/badges/version/trelloR)](https://www.rdocumentation.org/packages/trelloR/)
+
+The purpose of `trelloR` is to help you interact with the [Trello
+API](https://developer.atlassian.com/cloud/trello/rest) from R.
+
+### Example
+
+Request cards and return a data frame:
 
 ``` r
 library(trelloR)
-board = get_board_id("https://trello.com/b/nC8QJJoZ/trello-development-roadmap")
+board = "https://trello.com/b/wVWPK9I4/r-client-for-the-trello-api"
 cards = get_board_cards(board)
 ```
 
-Automated paging makes sure that all results will be acquired. Access to private boards is achieved by obtaining a secure token using [Trello developer keys](https://developers.trello.com/get-started/start-building#connect).
-
-You can install the development version from Github:
+### Get it from GitHub
 
 ``` r
-devtools::install_github("jchrom/trelloR")
+# install.packages("remotes")
+remotes::install_github("jchrom/trelloR")
 ```
 
-For more information, read the vignette.
+**CRAN (version 0.1)**
 
-**Note.** `trelloR` is built on top of Hadley Wickham's [httr](https://cran.r-project.org/package=httr) and Jeroen Ooms' [jsonlite](https://cran.r-project.org/package=jsonlite).
+The CRAN version is in dire need of an update, which will happen when
+0.7 is released (hopefully very soon). In the meantime, please use the
+development version above.
 
-**Disclaimer:** `trelloR` is not affiliated, associated, authorized, endorsed by or in any way officially connected to Trello, Inc. (<http://www.trello.com>).
+### Imports
+
+trelloR is built using [httr](https://cran.r-project.org/package=httr)
+and [jsonlite](https://cran.r-project.org/package=jsonlite).
+
+**Disclaimer:** `trelloR` is not affiliated, associated, authorized,
+endorsed by or in any way officially connected to Trello,
+Inc. (<https://trello.com/>).

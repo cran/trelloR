@@ -1,17 +1,59 @@
-.onAttach <- function(libname, pkgname) {
-    packageStartupMessage(
-        "R API for Trello\n",
-        "Disclaimer: trelloR is not affiliated, associated, authorized, endorsed by or in any way officially connected to Trello, Inc. (www.trello.com).\n")
-}
+# FOR EXPORT
+
+#' Convert hex string into POSIXct
+#'
+#' Convert hex string into POSIXct
+#' @param x Vector of strings, each 8 characters long
+#' @export
 
 as_POSIXct_hex = function(x) {
 
-    # Check input
-    if (!is.character(x)) stop("Input must be of class 'character'")
-    if (!all(nchar(x) == 8)) stop("Input must be a string of 8 characters")
+  stopifnot(is.character(x))
 
-    # Convert into POSIXct
-    timestamp = strtoi(x, 16L)
-    posix_ct  = as.POSIXct(timestamp, origin = "1970-01-01")
-    return(posix_ct)
+  if (!all(nchar(x) == 8))
+    x = strtrim(x, 8)
+
+  # Convert into POSIXct
+  as.POSIXct(strtoi(x, 16L), origin = "1970-01-01")
+
+}
+
+#' Extract ID
+#'
+#' Extract resource ID from its URL. If input is not a valid URL, it is
+#' returned as is.
+#'
+#' @param x character vector of length 1
+#' @export
+
+extract_id = function(x) {
+
+  if (is.null(x)) return()
+
+  is_url = function(x) !is.null(httr::parse_url(x)$hostname)
+
+  if (is_url(x)) {
+    path = httr::parse_url(x)$path
+    x = unlist(strsplit(path, "/"))[2]
+  }
+  x
+}
+
+# NOT FOR EXPORT
+
+require_tibble = function(x) {
+  if (requireNamespace("tibble", quietly = TRUE))
+    x = tibble::as_tibble(x)
+  x
+}
+
+warn_for_argument = function(x) {
+
+  if (!missing(x)) {
+    msg = sprintf("`%s`: argument is deprecated", as.character(substitute(x)))
+    warning(msg, call. = FALSE)
+  }
+
+  NULL
+
 }
